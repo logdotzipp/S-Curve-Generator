@@ -1,13 +1,6 @@
 # S Curve Generator
 
-This small python script takes:
-initial position
-initial velocity
-
-desired move velocity
-desired move acceleration
-
-final position
+This small python script takes initial position, initial velocity, desired move velocity, desired move acceleration, and final position as inputs
 
 It then generates a smooth position curve to move from the current position to the final position. This curve is then plotted for visualization.
 
