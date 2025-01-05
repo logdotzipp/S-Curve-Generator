@@ -13,11 +13,11 @@ def main():
     
     # Variables that define a curve
     t0 = 0 # Curve generation time. In a real time application, this would be given by the system clock
-    x0 = 100 # initial position (in)
-    v0 = 5 # initial velocity (in/s)
-    v = 20 # steady state velocity (in/s)
+    x0 = 0 # initial position (in)
+    v0 = 0 # initial velocity (in/s)
+    v = 10 # steady state velocity (in/s)
     a = 2 # acceleration (in/s^2)
-    xf = -25 # final position (in)
+    xf = 100 # final position (in)
     tscale = 1000 # time scale for the curve. In this case the system clock is in ms, so time is divided by 1000 to get seconds. This is necessary so that velocity and acceleration have units of in/s and in/s^2, respectively.
     
     # Create an array of times from 0 to 20000ms at 50ms intervals for testing
@@ -110,7 +110,7 @@ class CurveGenerator:
             # Motion will instead be triangular
             
             # Solve for the peak velocity. This should be less than the defined steady state velocity
-            self.v1 = (self.a_s*(self.xf - self.x0) + (self.v0**2)/2)**(0.5)*-1
+            self.v1 = (self.a_s*(self.xf - self.x0) + (self.v0**2)/2)**(0.5) * (abs(self.a_s)/self.a_s)
             self.t1 = (self.v1-self.v0)/self.a_s
             self.t2 = (self.v1/self.a_s) + self.t1
             
